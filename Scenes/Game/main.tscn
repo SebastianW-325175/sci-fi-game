@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://fg5g3jqxxwuo"]
+
+[ext_resource type="PackedScene" uid="uid://dso08k3aerxko" path="res://Scenes/Human/human.tscn" id="1_bxnwi"]
+[ext_resource type="Script" uid="uid://du4vlqociq6c7" path="res://Scenes/Game/main.gd" id="1_ejyo5"]
+[ext_resource type="Texture2D" uid="uid://cy3g7vrluog2t" path="res://icon.svg" id="2_h6bhl"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_ejyo5")
+
+[node name="Icon" type="Sprite2D" parent="."]
+texture = ExtResource("2_h6bhl")
+
+[node name="Human" parent="." instance=ExtResource("1_bxnwi")]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(2, 2)
+position_smoothing_enabled = true

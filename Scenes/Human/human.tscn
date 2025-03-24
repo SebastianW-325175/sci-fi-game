@@ -1,0 +1,20 @@
+[gd_scene load_steps=6 format=3 uid="uid://dso08k3aerxko"]
+
+[ext_resource type="PackedScene" uid="uid://dlkoib4r4q4ey" path="res://Scenes/Human/human_legs.tscn" id="1_bemt1"]
+[ext_resource type="PackedScene" uid="uid://876j84hvrrdw" path="res://Scenes/Human/human_head.tscn" id="1_iqh2n"]
+[ext_resource type="Script" uid="uid://o24uojkceeod" path="res://Scenes/Human/human.gd" id="1_jud8u"]
+[ext_resource type="PackedScene" uid="uid://ccmv77xg31018" path="res://Scenes/Human/human_arms.tscn" id="2_pjlqj"]
+[ext_resource type="PackedScene" uid="uid://sja1tesikecw" path="res://Scenes/Human/human_torso.tscn" id="3_a8vmv"]
+
+[node name="Human" type="Node2D"]
+script = ExtResource("1_jud8u")
+
+[node name="HumanLegs" parent="." instance=ExtResource("1_bemt1")]
+
+[node name="HumanArms" parent="." instance=ExtResource("2_pjlqj")]
+offset = Vector2(-0.5, 0)
+
+[node name="HumanTorso" parent="." instance=ExtResource("3_a8vmv")]
+
+[node name="HumanHead" parent="." instance=ExtResource("1_iqh2n")]
+offset = Vector2(0.5, 0)
