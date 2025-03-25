@@ -1,0 +1,42 @@
+[gd_scene load_steps=7 format=3 uid="uid://dn4ojapue84jo"]
+
+[ext_resource type="Texture2D" uid="uid://dt38ualvd2iuv" path="res://Assets/Textures/Ships/TestShip/test_ship.png" id="1_dwq5l"]
+[ext_resource type="Script" uid="uid://d1kx02rvf5q7o" path="res://Assets/Scenes/Ships/TestShip/test_ship.gd" id="1_l6nmn"]
+[ext_resource type="Script" uid="uid://w6y61sad321s" path="res://Assets/Scenes/Ships/TestShip/engine_handler.gd" id="3_5mhna"]
+[ext_resource type="PackedScene" uid="uid://dpx8e02vnhjdx" path="res://Assets/Scenes/Ships/TestShip/engine.tscn" id="4_s5dd3"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_l6nmn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5mhna"]
+size = Vector2(12, 12)
+
+[node name="TestShip" type="RigidBody2D"]
+mass = 100.0
+physics_material_override = SubResource("PhysicsMaterial_l6nmn")
+gravity_scale = 0.0
+angular_damp_mode = 1
+script = ExtResource("1_l6nmn")
+
+[node name="Collider" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_5mhna")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+ignore_rotation = false
+enabled = false
+zoom = Vector2(3, 3)
+position_smoothing_enabled = true
+rotation_smoothing_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_dwq5l")
+
+[node name="EngineHandler" type="Node2D" parent="."]
+script = ExtResource("3_5mhna")
+
+[node name="Engine1" parent="EngineHandler" instance=ExtResource("4_s5dd3")]
+position = Vector2(3, 6)
+rotation = 1.5708
+
+[node name="Engine2" parent="EngineHandler" instance=ExtResource("4_s5dd3")]
+position = Vector2(-3, 6)
+rotation = 1.5708

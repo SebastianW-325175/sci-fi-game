@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://dpx8e02vnhjdx"]
+
+[ext_resource type="Script" uid="uid://cd11bc70ousu5" path="res://Assets/Scenes/Ships/TestShip/engine.gd" id="1_uyl26"]
+[ext_resource type="Texture2D" uid="uid://be5di0wthj7n4" path="res://icon.svg" id="2_imq3t"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_hbafq"]
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(0, 0, 1)
+angle_min = -180.0
+angle_max = 180.0
+spread = 5.185
+initial_velocity_min = 41.67
+initial_velocity_max = 83.33
+gravity = Vector3(0, 0, 0)
+scale_min = 0.01
+scale_max = 0.02
+
+[node name="Engine" type="Node2D"]
+script = ExtResource("1_uyl26")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+emitting = false
+amount = 25
+texture = ExtResource("2_imq3t")
+process_material = SubResource("ParticleProcessMaterial_hbafq")
