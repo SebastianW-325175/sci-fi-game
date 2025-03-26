@@ -54,9 +54,16 @@ offset_bottom = 180.0
 text = "Rotation: "
 label_settings = SubResource("LabelSettings_elf4b")
 
-[node name="Line2D" type="Line2D" parent="."]
+[node name="Velocity_Indicator" type="Line2D" parent="."]
 position = Vector2(576, 324)
 points = PackedVector2Array(0, 0, 0, 0)
 width = 2.0
 default_color = Color(1, 0, 0, 1)
+end_cap_mode = 2
+
+[node name="Heading_Indicator" type="Line2D" parent="."]
+position = Vector2(576, 324)
+points = PackedVector2Array(0, 0, 0, 0)
+width = 2.0
+default_color = Color(0.651932, 0.759285, 0.951886, 1)
 end_cap_mode = 2
