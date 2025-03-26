@@ -11,12 +11,11 @@ func disable_control() -> void:
 	$Camera2D.enabled = false
 
 func _physics_process(delta) -> void:
-	$EngineHandler.update_thrust()
-	var engine_count : int = $EngineHandler.engine_array.size()
-	for i in engine_count:
-		var thrust_force : Vector2 = $EngineHandler.thrust_force_array[i].rotated(rotation)
-		var thrust_origin : Vector2 = $EngineHandler.thrust_origin_array[i].rotated(rotation)
-		apply_force(thrust_force, thrust_origin)
+	var active_engines = $EngineHandler.get_active_engines()
+	for engine in active_engines:
+		var force : Vector2 = engine.force.rotated(rotation)
+		var origin : Vector2 = engine.position.rotated(rotation)
+		apply_force(force, origin)
 
 func _input(event) -> void:
 	if is_controlled:
@@ -64,6 +63,3 @@ func _input(event) -> void:
 			$Camera2D.zoom *= 1.1
 		elif Input.is_action_just_pressed("zoom_out"):
 			$Camera2D.zoom /= 1.1
-		
-		var heading : Vector2 = Vector2.ZERO
-		#  to do

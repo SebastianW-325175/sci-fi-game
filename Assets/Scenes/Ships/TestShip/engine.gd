@@ -1,20 +1,17 @@
 extends Node2D
 
-var total_thrust_force := Vector2(0.0, 0.0)
-var total_thrust_origin := Vector2(0.0, 0.0)
-var max_thrust := 1000.0
-var current_thrust := 0.0
+var force := Vector2.ZERO
+var thrust := -1000
 var is_active := false
 
-func update_thrust() -> void:
-	total_thrust_force = Vector2(-current_thrust, 0.0)
-	total_thrust_force = total_thrust_force.rotated(rotation)
-	total_thrust_origin = position
+func _ready() -> void:
+	force.x = thrust
+	force = force.rotated(rotation)
 
 func enable_thrust() -> void:
-	current_thrust = max_thrust
+	is_active = true
 	$GPUParticles2D.emitting = true
 
 func disable_thrust() -> void:
-	current_thrust = 0.0
+	is_active = false
 	$GPUParticles2D.emitting = false
