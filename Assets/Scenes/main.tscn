@@ -30,7 +30,7 @@ texture = ExtResource("1_qplxx")
 [node name="Label" type="Label" parent="."]
 offset_right = 271.0
 offset_bottom = 45.0
-text = "Spaceship demo v0.2"
+text = "Spaceship demo v0.4"
 label_settings = SubResource("LabelSettings_elf4b")
 
 [node name="Location" type="Label" parent="."]

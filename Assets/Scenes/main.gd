@@ -1,9 +1,11 @@
 extends Node2D
+# Temporary script, used to set up the demo
 
 func _ready() -> void:
 	get_node("SubViewportContainer/SubViewport/Kairos").enable_control() 
 
 func _process(_delta) -> void:
+	# Below is some temporary code to get the displays running
 	var ship_node := get_node("SubViewportContainer/SubViewport/Kairos")
 	var ship_pos : Vector2i = ship_node.position
 	var ship_vel : Vector2i = ship_node.linear_velocity
